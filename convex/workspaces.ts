@@ -36,6 +36,11 @@ export const create = mutation({
       role: "admin",
     });
 
+    await ctx.db.insert("channels", {
+      name: "general",
+      workspaceId,
+    });
+
     return workspaceId;
   },
 });
@@ -150,11 +155,12 @@ export const remove = mutation({
     const [members] = await Promise.all([
       ctx.db
         .query("members")
-        .withIndex("by_workspace_id", (q) => q.eq("workspaceId", args.id)).collect()
+        .withIndex("by_workspace_id", (q) => q.eq("workspaceId", args.id))
+        .collect(),
     ]);
 
-    for(const member of members) {
-      await ctx.db.delete(member._id)
+    for (const member of members) {
+      await ctx.db.delete(member._id);
     }
 
     await ctx.db.delete(args.id);

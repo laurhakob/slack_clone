@@ -22,3 +22,4 @@ export const ChatInput = ({ placeholder }: ChatInputProps) => {
     </div>
   );
 };
+

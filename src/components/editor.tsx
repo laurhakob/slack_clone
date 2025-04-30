@@ -364,7 +364,7 @@ export default Editor;
 //             enter: {
 //               key: "Enter",
 //               handler: () => {
-//                 // TODO: Submit form
+
 //                 return;
 //               },
 //             },

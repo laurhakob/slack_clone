@@ -12,7 +12,7 @@ const ChannelIdPage = () => {
   const channelId = useChannelId();
 
   const { results, status, loadMore } = useGetMessages({ channelId });
-  3;
+  
 
   const { data: channel, isLoading: channelLoading } = useGetChannel({
     id: channelId,

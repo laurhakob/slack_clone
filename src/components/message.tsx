@@ -5,6 +5,7 @@ import { format, isToday, isYesterday } from "date-fns";
 import { Hint } from "./hint";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Thumbnail } from "./thumbnail";
+import { Toolbar } from "./toolbar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 
@@ -69,8 +70,8 @@ export const Message = ({
             <Renderer value={body} />
             <Thumbnail url={image} />
             {updatedAt ? (
-            <span className="text-xs text-muted-foreground">(edited)</span>
-          ) : null}
+              <span className="text-xs text-muted-foreground">(edited)</span>
+            ) : null}
           </div>
         </div>
       </div>
@@ -118,6 +119,17 @@ export const Message = ({
           /> */}
         </div>
       </div>
+      {!isEditing && (
+        <Toolbar
+          isAuthor={isAuthor}
+          isPending={() => {}}
+          handleEdit={() => setEditingId(id)}
+          handleThread={() => onOpenMessage(id)}
+          handleDelete={() => {}}
+          handleReaction={() => {}}
+          hideThreadButton={hideThreadButton}
+        />
+      )}
     </div>
   );
 };

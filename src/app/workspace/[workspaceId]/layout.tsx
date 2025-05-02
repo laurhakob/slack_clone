@@ -103,10 +103,7 @@
 
 // export default WorkspaceIdLayout;
 
-
-
-
-// current 
+// current
 
 // "use client";
 
@@ -180,19 +177,12 @@
 
 // export default WorkspaceIdLayout;
 
-
-
-
-
-
-
 // git hubic
 
 "use client";
 import { Loader } from "lucide-react";
 
 import { Thread } from "@/features/messages/components/thread";
-// import { Profile } from "@/features/members/components/profile";
 
 import {
   ResizableHandle,
@@ -206,10 +196,11 @@ import { Toolbar } from "./toolbar";
 import { WorkspaceSidebar } from "./workspace-sidebar";
 
 import { Id } from "../../../../convex/_generated/dataModel";
+import { Profile } from "@/features/members/components/profile";
 
 interface WorkspaceIdLayoutProps {
   children: React.ReactNode;
-};
+}
 
 const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
   const { parentMessageId, profileMemberId, onClose } = usePanel();
@@ -241,11 +232,11 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
               <ResizableHandle withHandle />
               <ResizablePanel minSize={20} defaultSize={29}>
                 {parentMessageId ? (
-                 <Thread
+                  <Thread
                     messageId={parentMessageId as Id<"messages">}
                     onClose={onClose}
-                 />
-                )  : profileMemberId ? (
+                  />
+                ) : profileMemberId ? (
                   <Profile
                     memberId={profileMemberId as Id<"members">}
                     onClose={onClose}

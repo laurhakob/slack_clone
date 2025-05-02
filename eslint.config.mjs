@@ -34,6 +34,9 @@ const eslintConfig = [
       // Disable unused variable warnings
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
+
+      // Disable empty object type rule
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
 ];

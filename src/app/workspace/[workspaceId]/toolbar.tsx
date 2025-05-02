@@ -17,6 +17,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { DialogTitle } from "@/components/ui/dialog";
 
 export const Toolbar = () => {
   const workspaceId = useWorkspaceId();
@@ -30,13 +31,11 @@ export const Toolbar = () => {
 
   const onChannelClick = (channelId: string) => {
     setOpen(false);
-
     router.push(`/workspace/${workspaceId}/channel/${channelId}`);
   };
 
   const onMemberClick = (memberId: string) => {
     setOpen(false);
-
     router.push(`/workspace/${workspaceId}/member/${memberId}`);
   };
 
@@ -53,9 +52,12 @@ export const Toolbar = () => {
           <span className="text-white text-xs">Search {data?.name}</span>
         </Button>
         <CommandDialog open={open} onOpenChange={setOpen}>
+          <DialogTitle className="sr-only">Search Dialog</DialogTitle>
+
           <CommandInput placeholder="Type a command or search..." />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
+
             <CommandGroup heading="Channels">
               {channels?.map((channel) => (
                 <CommandItem
@@ -66,7 +68,9 @@ export const Toolbar = () => {
                 </CommandItem>
               ))}
             </CommandGroup>
+
             <CommandSeparator />
+
             <CommandGroup heading="Members">
               {members?.map((member) => (
                 <CommandItem

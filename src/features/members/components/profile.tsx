@@ -23,11 +23,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { useGetMember } from "../api/use-get-member";
-import { useUpdateMember } from "../api/use-update-member";
-import { useRemoveMember } from "../api/use-remove-member";
+
 import { useCurrentMember } from "../api/use-current-member";
 
 import { Id } from "../../../../convex/_generated/dataModel";
+import { useUpdateMember } from "../api/use-update-member";
+import { useRemoveMember } from "../api/use-remove-member";
 
 interface ProfileProps {
   memberId: Id<"members">;
